@@ -23,7 +23,7 @@ GREEN = (168, 224, 95)
 
 
 def select_mockup() -> None:
-    bg = Image.open(IMG / "events" / "tinker_time_bg.png").convert("RGB").resize((1920, 1080))
+    bg = Image.open(IMG / "events" / "select_bg.png").convert("RGB").resize((1920, 1080))
     canvas = bg.convert("RGBA")
 
     portrait = Image.open(IMG / "charui" / "char_select_mad_scientist.png").convert("RGBA")

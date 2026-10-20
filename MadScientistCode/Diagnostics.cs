@@ -21,7 +21,7 @@ internal static class MadScientistDiagnostics
         "res://MadScientist/images/charui/char_select_mad_scientist.png",
         "res://MadScientist/images/charui/character_icon_mad_scientist.png",
         "res://MadScientist/images/charui/map_marker_mad_scientist.png",
-        "res://MadScientist/images/events/tinker_time_bg.png",
+        "res://MadScientist/images/events/select_bg.png",
     ];
 
     [HarmonyPostfix]

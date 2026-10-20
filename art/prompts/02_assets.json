@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "model": "doubao-seedream-5-0-flash-260915",
+    "size": "2K",
+    "refs": [
+      "../incoming/base/base_v2.png",
+      "../../docs/ai_ref/character_ref.png"
+    ]
+  },
+  "jobs": [
+    {
+      "name": "portrait",
+      "n": 1,
+      "size": "2K",
+      "prompt": "Slay the Spire 2 official character art style, thick black ink outlines, flat cel shading with two tones per material, muted limited palette, slightly grotesque exaggerated proportions, warm rim light from the upper right, no text, no watermark. Head and shoulders bust portrait of exactly the same lizard mad scientist as the first reference image: same orange-brown scaled skin, same wild curly hair made of overlapping gear-shaped petals in teal magenta yellow and blue, same large brass goggles with glowing yellow lenses pushed up on her forehead, same wide toothy grin, same white lab coat over a grey shirt. She looks towards the right, confident expression. Plain flat dark teal background (#0E1A17), no shadow, no gradient."
+    },
+    {
+      "name": "icon",
+      "n": 1,
+      "size": "1K",
+      "prompt": "Slay the Spire 2 official character art style, thick black ink outlines, flat cel shading, high contrast, readable at small size, no text, no watermark. Square head icon of exactly the same lizard mad scientist as the first reference image: close-up of the face with the large brass goggles and glowing yellow lenses on her forehead, colorful gear-petal hair, wide toothy grin, white lab coat collar. Centered, plain flat white background, no shadow."
+    },
+    {
+      "name": "design",
+      "n": 1,
+      "size": "2560x1440",
+      "prompt": "Slay the Spire 2 official character art style, thick black ink outlines, flat cel shading, muted limited palette, no text, no watermark, no labels. Character design sheet of exactly the same lizard mad scientist as the first reference image: front view, three-quarter view and side view standing in a neutral pose, plus a close-up of her head with the brass goggles and colorful gear-petal hair, and small prop callouts of her two wrenches and the green potion flask. Same outfit (white lab coat, grey shirt, leather belt, big scavenger backpack with hoses), same colors and proportions in every view, evenly spaced on a plain flat white background."
+    },
+    {
+      "name": "select_bg",
+      "n": 1,
+      "size": "2560x1440",
+      "refs": [
+        "../../docs/ai_ref/character_ref.png"
+      ],
+      "prompt": "Slay the Spire 2 style dark fantasy background, hand-painted 2D game art, thick shapes, a gloomy cave laboratory inside the Spire, scattered scrap metal, broken machines and hanging cables, a faint green chemical glow from the left, warm torch light from the right, deep shadows, no characters, no text, wide empty composition with space in the middle, 16:9 landscape."
+    }
+  ]
+}
