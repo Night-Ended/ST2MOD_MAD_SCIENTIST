@@ -1,0 +1,17 @@
+{
+  "MADSCIENTIST-MAD_SCIENTIST.title": "The Mad Scientist",
+  "MADSCIENTIST-MAD_SCIENTIST.titleObject": "The Mad Scientist",
+  "MADSCIENTIST-MAD_SCIENTIST.description": "A tinkerer who scavenges the Spire's scrap heaps.\nTurns junk, fumes and questionable chemistry into power.",
+  "MADSCIENTIST-MAD_SCIENTIST.pronounObject": "her",
+  "MADSCIENTIST-MAD_SCIENTIST.pronounSubject": "she",
+  "MADSCIENTIST-MAD_SCIENTIST.pronounPossessive": "hers",
+  "MADSCIENTIST-MAD_SCIENTIST.possessiveAdjective": "her",
+  "MADSCIENTIST-MAD_SCIENTIST.aromaPrinciple": "[sine][green]Sniff... yes, that is a promising reagent.[/green][/sine]",
+  "MADSCIENTIST-MAD_SCIENTIST.banter.alive.endTurnPing": "Almost... done...",
+  "MADSCIENTIST-MAD_SCIENTIST.banter.dead.endTurnPing": "...",
+  "MADSCIENTIST-MAD_SCIENTIST.eventDeathPrevention": "Not yet - I have experiments to finish.",
+  "MADSCIENTIST-MAD_SCIENTIST.goldMonologue": "[sine]Ooh, shiny. That will fetch a few reagents.[/sine]",
+  "MADSCIENTIST-MAD_SCIENTIST.cardsModifierTitle": "Mad Scientist Cards",
+  "MADSCIENTIST-MAD_SCIENTIST.cardsModifierDescription": "Mad Scientist cards will now appear in rewards and shops.",
+  "MADSCIENTIST-MAD_SCIENTIST.bestiaryQuote": "Fascinating. I must take a sample."
+}

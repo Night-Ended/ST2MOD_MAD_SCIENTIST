@@ -1,0 +1,17 @@
+{
+  "MADSCIENTIST-MAD_SCIENTIST.title": "疯狂科学家",
+  "MADSCIENTIST-MAD_SCIENTIST.titleObject": "疯狂科学家",
+  "MADSCIENTIST-MAD_SCIENTIST.description": "在尖塔的废料堆里翻找材料的修补匠。\n把破烂、浓烟和来路不明的化学变成力量。",
+  "MADSCIENTIST-MAD_SCIENTIST.pronounObject": "她",
+  "MADSCIENTIST-MAD_SCIENTIST.pronounSubject": "她",
+  "MADSCIENTIST-MAD_SCIENTIST.pronounPossessive": "她的",
+  "MADSCIENTIST-MAD_SCIENTIST.possessiveAdjective": "她的",
+  "MADSCIENTIST-MAD_SCIENTIST.aromaPrinciple": "[sine][green]嗅……嗯，这是很有潜力的试剂。[/green][/sine]",
+  "MADSCIENTIST-MAD_SCIENTIST.banter.alive.endTurnPing": "马上……就好……",
+  "MADSCIENTIST-MAD_SCIENTIST.banter.dead.endTurnPing": "……",
+  "MADSCIENTIST-MAD_SCIENTIST.eventDeathPrevention": "还不行——我的实验还没做完。",
+  "MADSCIENTIST-MAD_SCIENTIST.goldMonologue": "[sine]哦，亮闪闪的。能换不少试剂。[/sine]",
+  "MADSCIENTIST-MAD_SCIENTIST.cardsModifierTitle": "疯狂科学家卡牌",
+  "MADSCIENTIST-MAD_SCIENTIST.cardsModifierDescription": "疯狂科学家的卡牌现在会出现在奖励和商店中。",
+  "MADSCIENTIST-MAD_SCIENTIST.bestiaryQuote": "真有意思。我得取个样本。"
+}
