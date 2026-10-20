@@ -1,6 +1,6 @@
 {
   "defaults": {
-    "model": "doubao-seedream-4-0-250828",
+    "model": "doubao-seedream-5-0-flash-260915",
     "size": "2K",
     "refs": [
       "../../docs/ai_ref/character_ref.png",
@@ -35,7 +35,7 @@
     {
       "name": "select_bg",
       "n": 1,
-      "size": "1920x1080",
+      "size": "2560x1440",
       "refs": [
         "../../docs/ai_ref/character_ref.png"
       ],

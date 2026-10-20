@@ -41,7 +41,7 @@ except ImportError:  # pragma: no cover - Pillow is present in this workspace
     Image = None
 
 ENDPOINT = os.environ.get("ARK_IMAGE_ENDPOINT", "https://ark.cn-beijing.volces.com/api/v3/images/generations")
-DEFAULT_MODEL = "doubao-seedream-4-0-250828"
+DEFAULT_MODEL = "doubao-seedream-5-0-flash-260915"
 KEY_FILE_DEFAULT = Path(os.environ.get("ARK_API_KEY_FILE", Path.home() / ".dsh" / "secrets" / "ark_api_key"))
 MAX_REFS = 14
 
@@ -164,7 +164,7 @@ def post_json(payload: dict, api_key: str, timeout: int, retries: int = 2) -> di
 
 def build_payload(args, prompt: str, ref_uris: list[str]) -> dict:
     payload: dict = {
-        "model": args.model,
+        "model": args.model or DEFAULT_MODEL,
         "prompt": prompt,
         "size": args.size,
         "response_format": "b64_json",
@@ -229,9 +229,10 @@ def make_parser() -> argparse.ArgumentParser:
     p.add_argument("prompt", nargs="?", help="prompt text (omit when using --batch)")
     p.add_argument("--prompt-file", type=Path, help="read the prompt from a UTF-8 text file")
     p.add_argument("--batch", type=Path, help="run a batch JSON file (see docs/seedream.md)")
+    p.add_argument("--only", help="comma separated job names to run from the batch")
     p.add_argument("--ref", action="append", default=[], help="reference image path (repeatable)")
     p.add_argument("--ref-max", type=int, default=1536, help="downscale refs so the long edge is <= N px (0 = off)")
-    p.add_argument("--model", default=DEFAULT_MODEL, help=f"model id or endpoint id (default {DEFAULT_MODEL})")
+    p.add_argument("--model", default=None, help=f"model id or endpoint id (default {DEFAULT_MODEL})")
     p.add_argument("--size", default="2K", help="1K / 2K / 4K or WIDTHxHEIGHT (multiples of 16)")
     p.add_argument("-n", "--n", type=int, default=1, help="generate a related set of N images (1-15)")
     p.add_argument("--out", type=Path, default=Path("seedream_out"), help="output directory")
@@ -279,14 +280,14 @@ def run_one(args, prompt: str, refs: list[str], base_dir: Path, out_dir: Path, n
             f"  3) or put the key in {args.key_file}"
         )
 
-    print(f"-> {args.model} size={args.size} n={args.n} refs={len(ref_uris)} prompt={len(prompt)} chars")
+    print(f"-> {args.model or DEFAULT_MODEL} size={args.size} n={args.n} refs={len(ref_uris)} prompt={len(prompt)} chars")
     started = time.time()
     result = post_json(payload, key, args.timeout)
     elapsed = time.time() - started
 
     meta = {
         "prompt": prompt,
-        "model": args.model,
+        "model": args.model or DEFAULT_MODEL,
         "size": args.size,
         "n": args.n,
         "refs": ref_meta,
@@ -306,6 +307,7 @@ def run_batch(args, batch_path: Path, out_dir: Path) -> None:
     if not jobs:
         raise SystemExit(f"no jobs in {batch_path}")
 
+    wanted = {n.strip() for n in args.only.split(",")} if args.only else None
     base_dir = batch_path.parent
     for i, job in enumerate(jobs, 1):
         prompt = job.get("prompt", "")
@@ -314,14 +316,16 @@ def run_batch(args, batch_path: Path, out_dir: Path) -> None:
         refs = job.get("refs", defaults.get("refs", []))
         # local overrides for this job
         saved_attrs = (args.model, args.size, args.n)
-        if "model" in job or "model" in defaults:
-            args.model = job.get("model", defaults.get("model", args.model))
+        if args.model is None and ("model" in job or "model" in defaults):
+            args.model = job.get("model", defaults.get("model"))
         if "size" in job or "size" in defaults:
             args.size = job.get("size", defaults.get("size", args.size))
         if "n" in job or "n" in defaults:
             args.n = int(job.get("n", defaults.get("n", args.n)))
 
         name = job.get("name") or f"job{i:02d}"
+        if wanted and name not in wanted:
+            continue
         print(f"=== [{i}/{len(jobs)}] {name}")
         try:
             run_one(args, prompt, refs, base_dir, out_dir, name)
