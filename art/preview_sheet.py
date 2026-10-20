@@ -23,13 +23,8 @@ GREEN = (168, 224, 95)
 
 
 def select_mockup() -> None:
-    bg = Image.open(IMG / "events" / "select_bg.png").convert("RGB").resize((1920, 1080))
-    canvas = bg.convert("RGBA")
-
-    portrait = Image.open(IMG / "charui" / "char_select_mad_scientist.png").convert("RGBA")
-    scale = 3.4
-    p = portrait.resize((int(portrait.width * scale), int(portrait.height * scale)), Image.LANCZOS)
-    canvas.alpha_composite(p, (250, 1080 - p.height - 90))
+    """The select screen look: background already contains the character."""
+    canvas = Image.open(IMG / "events" / "select_bg.png").convert("RGBA").resize((1920, 1080))
 
     d = ImageDraw.Draw(canvas)
     f_title = ImageFont.truetype(FONT_B, 64)
@@ -37,12 +32,12 @@ def select_mockup() -> None:
     d.text((250, 120), "疯狂科学家", font=f_title, fill=GREEN, stroke_width=5, stroke_fill=(8, 12, 9, 255))
     d.text((252, 200), "THE MAD SCIENTIST", font=f_sub, fill=(226, 236, 220), stroke_width=3, stroke_fill=(8, 12, 9, 255))
 
-    # fake info panel on the right, just for composition
+    # fake info panel on the left, just for composition
     panel = Image.new("RGBA", (470, 560), (12, 16, 13, 170))
-    canvas.alpha_composite(panel, (1330, 260))
-    d.text((1362, 300), "生命 70 / 70", font=ImageFont.truetype(FONT, 34), fill=(230, 235, 225))
-    d.text((1362, 360), "初始遗物：燃烧之血（占位）", font=ImageFont.truetype(FONT, 26), fill=(190, 200, 185))
-    d.text((1362, 420), "卡池：疯狂科学家", font=ImageFont.truetype(FONT, 26), fill=(190, 200, 185))
+    canvas.alpha_composite(panel, (180, 260))
+    d.text((212, 300), "生命 70 / 70", font=ImageFont.truetype(FONT, 34), fill=(230, 235, 225))
+    d.text((212, 360), "初始遗物：燃烧之血（占位）", font=ImageFont.truetype(FONT, 26), fill=(190, 200, 185))
+    d.text((212, 420), "卡池：疯狂科学家", font=ImageFont.truetype(FONT, 26), fill=(190, 200, 185))
     canvas.convert("RGB").save(DOCS / "select_mockup.png")
 
 
