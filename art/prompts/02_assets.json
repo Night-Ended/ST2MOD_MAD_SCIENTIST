@@ -9,6 +9,12 @@
   },
   "jobs": [
     {
+      "name": "base_dark",
+      "n": 1,
+      "size": "2K",
+      "prompt": "Slay the Spire 2 official character art style, hand-painted 2D game illustration, thick dark ink outlines, painterly flat shading with soft gradients, muted earthy palette, warm rim light from the upper right, slightly grotesque stylized proportions, clean readable silhouette, high contrast, no text, no watermark, no border. A female lizard-like mad scientist, orange-brown scaled skin, strong muscular arms, wild curly hair made of overlapping gear-shaped petals in teal magenta yellow and blue, large brass goggles with glowing yellow lenses pushed up on her forehead, wide toothy grin, white lab coat over a grey shirt, leather belt with pouches, oversized scavenger backpack with rubber hoses and a glowing green potion flask, right arm raised, left hand holding a wrench, standing in a relaxed combat stance, full body, feet visible and standing on the ground, three-quarter view facing right, flat plain dark teal background (#0E1A17), no gradient, no shadow under the feet."
+    },
+    {
       "name": "portrait",
       "n": 1,
       "size": "2K",

@@ -62,6 +62,13 @@ def cut_white(im: Image.Image, thresh: int = 22, shadow: bool = True, corners=No
         shadow_mask = bottom & (sat < 0.13) & (mx > 0.55)
         alpha[shadow_mask] = 0.0
 
+    # enclosed pure-white pockets (between the backpack straps, between the arm
+    # and the body, inside the wrench, ...) are not reachable from the border.
+    # The lab coat is white too, but shaded, so a high threshold only hits the
+    # flat background leftovers.
+    mn = np.asarray(rgb).min(2)
+    alpha[(mn >= 248) & (~bg)] = 0.0
+
     alpha_img = Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.6))
     out = rgb.convert("RGBA")
     out.putalpha(alpha_img)
@@ -137,8 +144,8 @@ def main() -> None:
     (OUT / "events").mkdir(parents=True, exist_ok=True)
 
     # ---- full body ----
-    body_src = Image.open(INCOMING / "base" / "base_v2.png")
-    body = cut_white(body_src, thresh=24)
+    body_src = Image.open(INCOMING / "assets" / "base_dark2.png")
+    body = cut_dark(body_src, thresh=46)
     x0, y0, x1, y1 = bbox(body)
     body = body.crop((x0, y0, x1, y1))
     h = 700
@@ -146,14 +153,9 @@ def main() -> None:
     body.save(OUT / "character" / "combat.png")
     print("combat", body.size)
 
-    # ---- portrait: crop a 2:3 bust around the head ----
-    portrait_src = cut_dark(Image.open(INCOMING / "assets" / "portrait.png"), thresh=46)
-    pw, ph = portrait_src.size
-    ch = int(ph * 0.94)
-    cw = int(ch * 132 / 195)
-    x0 = int((pw - cw) * 0.62)
-    y0 = int(ph * 0.02)
-    portrait = portrait_src.crop((x0, y0, x0 + cw, y0 + ch))
+    # ---- portrait: vanilla event-art cutout (per request, not the AI one) ----
+    ev = Image.open(ROOT / "art" / "ref" / "event_cutout.png").convert("RGBA")
+    portrait = ev.crop((150, 20, 480, 507))
     p = resize_rgba(portrait, (132, 195))
     p.save(OUT / "charui" / "char_select_mad_scientist.png")
     silhouette(p, (132, 195)).save(OUT / "charui" / "char_select_mad_scientist_locked.png")

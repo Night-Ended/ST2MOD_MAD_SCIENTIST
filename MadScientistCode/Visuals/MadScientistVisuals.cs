@@ -21,6 +21,9 @@ public static class MadScientistVisuals
 {
     public const string TexturePath = "res://MadScientist/images/character/combat.png";
 
+    /// <summary>In-combat display scale relative to the texture (1.0 = 700 px tall).</summary>
+    public const float VisualScale = 0.4f;
+
     public static NCreatureVisuals Create()
     {
         var texture = ResourceLoader.Load<Texture2D>(TexturePath);
@@ -50,6 +53,7 @@ public static class MadScientistVisuals
         player.AddAnimationLibrary("", library);
 
         player.Autoplay = "Idle";
+        root.Scale = new Vector2(VisualScale, VisualScale);
         return root;
     }
 

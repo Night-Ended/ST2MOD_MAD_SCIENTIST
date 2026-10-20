@@ -58,6 +58,9 @@ internal static class MadScientistDiagnostics
                 return;
             }
 
+            var sprite = visuals.GetNodeOrNull<Sprite2D>("Visuals/Sprite");
+            MainFile.Logger.Info(
+                $"[Diag] combat visual scale={visuals.Scale} texture={(sprite?.Texture?.GetSize().ToString() ?? "null")}");
             var player = visuals.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
             var names = player == null ? "<none>" : string.Join(",", player.GetAnimationList());
             MainFile.Logger.Info($"[Diag] combat animations: {names} autoplay={player?.Autoplay}");
