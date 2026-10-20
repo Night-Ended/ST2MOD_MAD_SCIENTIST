@@ -101,7 +101,24 @@ D:\DSH_work\.dotnet\dotnet.exe build -c Release
   `eventDeathPrevention`、`goldMonologue`、`cardsModifierTitle`、`cardsModifierDescription`、`bestiaryQuote`。
 - 角色主题色：`#A8E05F`（酸绿色，取自背包上的试剂瓶）；卡背 HSV = (0.24, 0.72, 1.0)。
 
-## 6. 不想打扰正在运行的游戏时
+## 6. 无头测试（不开窗口）
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools	est_headless.ps1
+```
+
+游戏以 `--headless` 启动，脚本从 `godot.log` 里等 `[MadScientist] [Diag]` 一行，拿到结果后只关闭自己启动的那个进程。
+检测到游戏已经在运行时会直接退出（避免抢 `settings.save` / 日志）。
+
+## 7. 预览图（离线渲染，非游戏截图）
+
+- `docs/select_mockup.png` —— 角色选择背景 + 立绘的合成预览
+- `docs/anim_preview.png` —— 战斗动画关键帧（和代码里的关键帧数值一致）
+- `docs/preview.png` —— 各尺寸素材总览
+
+生成：`python art/preview_sheet.py`
+
+## 8. 不想打扰正在运行的游戏时
 
 编译到项目内的 `.deploy/` 而不是游戏目录：
 
@@ -112,7 +129,7 @@ dotnet build -c Release -p:ModsPath=D:\DSH_work\StS2_MadScientist\.deploy```
 
 无头测试脚本 `tools/test_headless.ps1` 在检测到游戏已运行时**会直接退出**，只停掉它自己启动的进程。
 
-## 7. 动画与角色选择背景
+## 8.1 动画与角色选择背景
 
 - 战斗形象：`MadScientistCode/Visuals/MadScientistVisuals.cs`
   - 用代码生成 `AnimationPlayer`（不依赖 Spine）：`Idle`（呼吸/轻微摆动，循环）、`Attack`（前冲+白闪）、`Cast`（起跳+绿光）、`Hurt`（抖动+红闪）、`Die`（倒地淡出），同时注册小写别名。
@@ -120,7 +137,7 @@ dotnet build -c Release -p:ModsPath=D:\DSH_work\StS2_MadScientist\.deploy```
 - 角色选择背景：`scenes/char_select_bg_mad_scientist.tscn`（Control + TextureRect），底图是事件插画做的高斯模糊 + 压暗 + 暗角版本 `images/events/tinker_time_bg.png`。
   - `.tscn` 由 `art/pack_scenes.py` 在 `dotnet build` 时追加进 `.pck`（PckPacker 本身不支持场景）。
 
-## 8. 当前状态
+## 9. 当前状态
 
 已完成：
 

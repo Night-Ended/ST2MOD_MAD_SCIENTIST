@@ -235,21 +235,35 @@ def silhouette(im: Image.Image, size: tuple[int, int], color=(0, 0, 0)) -> Image
 
 
 def build_select_bg() -> None:
-    """16:9 backdrop for the character select screen, reusing the event illustration."""
+    """16:9 backdrop for the character select screen, reusing the event illustration.
+
+    The event's own scientist is painted out (patched with nearby cave wall) so
+    she does not show up as a ghost behind the character portrait.
+    """
     im = Image.open(SRC).convert("RGB")
+
+    # patch out the original character with a clean piece of cave wall
+    patch = im.crop((1700, 760, 2340, 1500)).resize((580, 740), Image.LANCZOS)
+    mask = Image.new("L", (580, 740), 0)
+    ImageDraw.Draw(mask).rectangle((10, 10, 570, 730), fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(60))
+    im.paste(patch, (930, 760), mask)
+
     w = int(im.height * 16 / 9)
     x0 = 300
     bg = im.crop((x0, 0, x0 + w, im.height)).resize((1920, 1080), Image.LANCZOS)
-    bg = bg.filter(ImageFilter.GaussianBlur(4))
-    arr = np.asarray(bg).astype(np.float32) * 0.82
+    bg = bg.filter(ImageFilter.GaussianBlur(10))
+
+    arr = np.asarray(bg).astype(np.float32) * 0.88
     arr[:, :, 1] *= 1.04
+    arr[:, :, 2] *= 1.02
     bg = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
 
     yy, xx = np.mgrid[0:1080, 0:1920]
     dx = (xx - 960) / 960.0
     dy = (yy - 540) / 540.0
     r = np.sqrt(dx * dx + dy * dy)
-    v = np.clip(1.0 - 0.40 * np.clip(r - 0.35, 0, 1.2) ** 1.4, 0.25, 1.0)
+    v = np.clip(1.0 - 0.38 * np.clip(r - 0.35, 0, 1.2) ** 1.4, 0.28, 1.0)
     arr = np.asarray(bg).astype(np.float32) * v[..., None]
     Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).save(OUT / "events" / "tinker_time_bg.png")
 
