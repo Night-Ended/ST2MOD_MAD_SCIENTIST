@@ -2,6 +2,7 @@
 using BaseLib.Utils.NodeFactories;
 using Godot;
 using MadScientist.MadScientistCode.Extensions;
+using MadScientist.MadScientistCode.Visuals;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -62,8 +63,11 @@ public class MadScientist : PlaceholderCharacterModel
     /// </summary>
     public override NCreatureVisuals? CreateCustomVisuals()
     {
-        return NodeFactory<NCreatureVisuals>.CreateFromResource("character/combat.png".ImagePath());
+        return MadScientistVisuals.Create();
     }
+
+    /// <summary>Character select backdrop, painted from the Tinker Time event illustration.</summary>
+    public override string CustomCharacterSelectBg => "res://MadScientist/scenes/char_select_bg_mad_scientist.tscn";
 
     /* PlaceholderCharacterModel reuses base game assets for everything that is
        not overridden below (rest site pose, merchant pose, energy counter, card

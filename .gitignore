@@ -10,3 +10,5 @@ packages/
 .editorconfig
 *.user
 Directory.Build.props
+# local deploy target used while the game is running
+.deploy/

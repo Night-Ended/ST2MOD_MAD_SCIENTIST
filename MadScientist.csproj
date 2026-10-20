@@ -10,6 +10,8 @@
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
         <PathMap>$(AppOutputBase)=.\</PathMap>
         <GodotDisabledSourceGenerators>GodotPluginsInitializer</GodotDisabledSourceGenerators>
+        <!-- Python is only used to append .tscn files to the pck; override if needed. -->
+        <PythonPath Condition="'$(PythonPath)' == ''">python</PythonPath>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -103,6 +105,13 @@
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
         <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+    </Target>
+
+    <Target Name="AddScenesToPck" AfterTargets="PackPck" BeforeTargets="CopyQuickPck"
+            Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true' And Exists('$(MSBuildProjectDirectory)/scenes')">
+        <Message Text="Appending text scenes to the .pck" Importance="high"/>
+        <Exec Command="&quot;$(PythonPath)&quot; &quot;$(MSBuildProjectDirectory)\art\pack_scenes.py&quot; &quot;$(PckPackerOutputPath)&quot; &quot;$(MSBuildProjectDirectory)\scenes&quot; &quot;$(MSBuildProjectName)/scenes&quot;"
+              ContinueOnError="WarnAndContinue"/>
     </Target>
 
     <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">

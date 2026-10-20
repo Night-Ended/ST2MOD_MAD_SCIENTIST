@@ -101,14 +101,34 @@ D:\DSH_work\.dotnet\dotnet.exe build -c Release
   `eventDeathPrevention`、`goldMonologue`、`cardsModifierTitle`、`cardsModifierDescription`、`bestiaryQuote`。
 - 角色主题色：`#A8E05F`（酸绿色，取自背包上的试剂瓶）；卡背 HSV = (0.24, 0.72, 1.0)。
 
-## 6. 当前状态
+## 6. 不想打扰正在运行的游戏时
+
+编译到项目内的 `.deploy/` 而不是游戏目录：
+
+```powershell
+dotnet build -c Release -p:ModsPath=D:\DSH_work\StS2_MadScientist\.deploy```
+
+（游戏启动时才会读取 mod，运行中覆盖 mods 目录一般不会影响当前这局，但 DLL 被占用时复制会失败，所以稳妥起见用上面的参数。）
+
+无头测试脚本 `tools/test_headless.ps1` 在检测到游戏已运行时**会直接退出**，只停掉它自己启动的进程。
+
+## 7. 动画与角色选择背景
+
+- 战斗形象：`MadScientistCode/Visuals/MadScientistVisuals.cs`
+  - 用代码生成 `AnimationPlayer`（不依赖 Spine）：`Idle`（呼吸/轻微摆动，循环）、`Attack`（前冲+白闪）、`Cast`（起跳+绿光）、`Hurt`（抖动+红闪）、`Die`（倒地淡出），同时注册小写别名。
+  - 贴图挂在脚部枢轴上，所以前倾/倒地是绕脚旋转，不会以腰部为轴。
+- 角色选择背景：`scenes/char_select_bg_mad_scientist.tscn`（Control + TextureRect），底图是事件插画做的高斯模糊 + 压暗 + 暗角版本 `images/events/tinker_time_bg.png`。
+  - `.tscn` 由 `art/pack_scenes.py` 在 `dotnet build` 时追加进 `.pck`（PckPacker 本身不支持场景）。
+
+## 8. 当前状态
 
 已完成：
 
 - [x] 工程骨架、可编译、可打包、游戏内 Mod 列表可见、无报错加载
 - [x] 角色注册（`CHARACTER.MADSCIENTIST-MAD_SCIENTIST`），日志自检通过：名称解析为「疯狂科学家」，血量 70
 - [x] 角色选择立绘、locked 剪影、顶栏头像、白色描边、地图标记、Mod 缩略图（4 张 PNG 全部能被游戏加载）
-- [x] 战斗形象（静态图，从事件插画抠出）
+- [x] 战斗形象 + 代码生成的待机/攻击/施法/受击/死亡动画（无头端日志确认 5 组动画都已注册，Autoplay=Idle）
+- [x] 角色选择背景（事件插画模糊压暗版，`.tscn` 已能从 pck 加载）
 - [x] 中英双语名称/描述/台词
 - [x] 卡池/遗物池/药水池 + 酸绿色卡背
 
