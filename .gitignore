@@ -12,3 +12,7 @@ packages/
 Directory.Build.props
 # local deploy target used while the game is running
 .deploy/
+
+# generated images (large)
+art/incoming/
+seedream_out/

@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "model": "doubao-seedream-4-0-250828",
+    "size": "2K",
+    "refs": [
+      "../../docs/ai_ref/character_ref.png",
+      "../../docs/ai_ref/style_board.png"
+    ]
+  },
+  "jobs": [
+    {
+      "name": "base",
+      "n": 1,
+      "size": "2K",
+      "prompt": "Slay the Spire 2 official character art style, hand-painted 2D game illustration, thick dark ink outlines, painterly flat shading with soft gradients, muted earthy palette, warm rim light from the upper right, slightly grotesque stylized proportions, clean readable silhouette, high contrast, no text, no watermark, no border. A female lizard-like mad scientist, orange-brown scaled skin, strong muscular arms, wild curly hair made of overlapping gear-shaped petals in teal magenta yellow and blue, large brass goggles with glowing yellow lenses pushed up on her forehead, wide toothy grin, white lab coat over a grey shirt, leather belt with pouches, oversized scavenger backpack with rubber hoses and a glowing green potion flask, right arm raised, left hand holding a wrench, standing in a relaxed combat stance, full body, feet visible and standing on the ground, three-quarter view facing right, plain white background."
+    },
+    {
+      "name": "portrait",
+      "n": 1,
+      "size": "2K",
+      "prompt": "Slay the Spire 2 official character art style, hand-painted 2D game illustration, thick dark ink outlines, painterly flat shading, muted earthy palette, warm rim light from the upper right, slightly grotesque stylized proportions, no text, no watermark. Head and shoulders bust portrait of the same lizard mad scientist as the reference, large brass goggles with glowing yellow lenses pushed up on her forehead, colorful gear-petal hair, white lab coat collar, wide toothy grin, looking to the right, plain white background."
+    },
+    {
+      "name": "icon",
+      "n": 1,
+      "size": "1K",
+      "prompt": "Slay the Spire 2 official character art style, hand-painted 2D game illustration, thick dark ink outlines, high contrast, readable at small size, no text, no watermark. Square head icon of the same lizard mad scientist as the reference, close-up of the face and glowing yellow goggles, colorful gear-petal hair, plain white background."
+    },
+    {
+      "name": "select_bg",
+      "n": 1,
+      "size": "1920x1080",
+      "refs": [
+        "../../docs/ai_ref/character_ref.png"
+      ],
+      "prompt": "Slay the Spire 2 style dark fantasy background, hand-painted 2D game art, a gloomy cave laboratory inside the Spire, scattered scrap metal and broken machines, faint green glow from a flask, warm torch light from the right, deep shadows, no characters, no text, wide empty composition with space in the center, 16:9 landscape."
+    }
+  ]
+}
