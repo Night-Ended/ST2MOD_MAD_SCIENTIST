@@ -58,10 +58,10 @@ python tools/seedream.py --batch art/prompts/01_base.json --out art/incoming/bas
 
 | 文件 | 内容 | 输出 |
 |---|---|---|
-| `art/prompts/01_base.json` | 全身基准图、立绘、头像、选择背景 | `art/incoming/base/` |
-| `art/prompts/02_frames.json` | 8 帧（待机 3 / 攻击 3 / 受击 2），参考 `../incoming/base/base.png` | `art/incoming/frames/` |
+| `art/prompts/01_base.json` | 人设图、全身图、立绘、小头像、选择背景 | `art/incoming/base/` |
 
-先跑 01，挑一张满意的存成 `art/incoming/base/base.png`，再跑 02。
+跑完挑一张满意的全身图，重命名为 `art/incoming/base/base.png`，我再接进游戏。
+（8 帧方案已取消，动画用单张图做位移/旋转/拉伸压缩。）
 
 ## 4. 参数备忘
 
