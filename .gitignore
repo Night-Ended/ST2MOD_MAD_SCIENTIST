@@ -26,3 +26,6 @@ DSH_workStS2_MadScientist.deploy 2/
 
 # release artifacts
 dist/
+
+# Isolated local issue validation dependencies and deploy output
+.validation/
