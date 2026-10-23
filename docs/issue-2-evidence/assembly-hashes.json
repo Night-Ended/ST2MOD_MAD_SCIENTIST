@@ -26,7 +26,7 @@
   },
   {
     "Name": "MadScientist.dll",
-    "Role": "compile-check output",
+    "Role": "initial compile-check output before full-build follow-up",
     "SHA256": "142A0DEF34D43A0F92733268E93B67647875732353B7163BD1257C3B5CFE4348"
   }
 ]

@@ -29,3 +29,6 @@ dist/
 
 # Isolated local issue validation dependencies and deploy output
 .validation/
+
+# Python resource/pack validation caches
+__pycache__/

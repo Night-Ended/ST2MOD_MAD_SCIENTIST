@@ -129,10 +129,13 @@ foreach (var loss in new[] { 5, 3 })
     var soul = await PowerCmd.Apply<SoulResearchPower>(choice, soulPlayer.Creature, loss, soulPlayer.Creature, null);
     soulPlayer.Creature.CurrentHp = 0;
     Check(!soul.ShouldDieLate(soulPlayer.Creature), $"Soul Research prevents first death (loss {loss})");
+    Check(soul.SmartDescription.Key.EndsWith(".smartDescription"), "unused Soul Research selects its active smart description");
     await soul.AfterPreventingDeath(soulPlayer.Creature);
     Check(soulPlayer.Creature.MaxHp == 60 - loss && soulPlayer.Creature.CurrentHp == (int)((60 - loss) / 2m), $"Soul Research reduces max HP and heals to half (loss {loss})");
     var reapplied = await PowerCmd.Apply<SoulResearchPower>(choice, soulPlayer.Creature, loss, soulPlayer.Creature, null);
     Check(reapplied.ShouldDieLate(soulPlayer.Creature), $"Soul Research cannot revive again after reapplication (loss {loss})");
+    Check(reapplied.SmartDescription.Key == "MADSCIENTIST-SOUL_RESEARCH_POWER.spent"
+        && reapplied.Description.Key == reapplied.SmartDescription.Key, "spent Soul Research keeps both tooltip paths spent after reapplication");
     Check(soul.ShouldDieLate(other.Creature), "Soul Research does not prevent teammate death");
 }
 var researchPlayer = NewPlayer();

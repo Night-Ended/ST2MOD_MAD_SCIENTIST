@@ -22,6 +22,12 @@ public class SoulResearchPower : MadScientistPower
         ? new("powers", "MADSCIENTIST-SOUL_RESEARCH_POWER.spent")
         : base.Description;
 
+    // Mutable powers use SmartDescription in combat. Keep its spent state in
+    // sync with Description now that the localized smart description exists.
+    protected override string SmartDescriptionLocKey => Used
+        ? "MADSCIENTIST-SOUL_RESEARCH_POWER.spent"
+        : base.SmartDescriptionLocKey;
+
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Single;

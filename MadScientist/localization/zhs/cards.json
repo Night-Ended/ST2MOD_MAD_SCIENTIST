@@ -134,5 +134,7 @@
   "MADSCIENTIST-FUSED_X_CARD.title": "融合体",
   "MADSCIENTIST-FUSED_X_CARD.description": "{Effects}",
   "FUSED_CARD.title": "融合体",
-  "FUSED_CARD.description": "[gold]融合效果[/gold]（按顺序结算）：\n{Effects}"
+  "FUSED_CARD.description": "[gold]融合效果[/gold]（按顺序结算）：\n{Effects}",
+  "FUSED_X_CARD.title": "融合",
+  "FUSED_X_CARD.description": "{Effects}"
 }

@@ -29,5 +29,20 @@
   "MADSCIENTIST-BLOCK_LOCK_POWER.description": "For the next {Amount} turns, you cannot gain Block from cards.",
   "MADSCIENTIST-BLAST_FREE_POWER.title": "Blast Time",
   "MADSCIENTIST-BLAST_FREE_POWER.description": "Your Blast cards cost 0 this turn.",
-  "MADSCIENTIST-SOUL_RESEARCH_POWER.spent": "Soul Research has already prevented death this combat. Playing it again cannot revive you a second time."
+  "MADSCIENTIST-SOUL_RESEARCH_POWER.spent": "Soul Research has already prevented death this combat. Playing it again cannot revive you a second time.",
+  "MADSCIENTIST-MACHINE_DURABILITY_POWER.smartDescription": "{OwnerName} has {Amount} Machine Durability (max 20). Consuming more than the remaining durability breaks the machine and deals twice the shortfall as damage.",
+  "MADSCIENTIST-MACHINE_BROKEN_POWER.smartDescription": "{OwnerName} cannot play cards that consume Machine Durability for the rest of this combat. Repair has no effect.",
+  "MADSCIENTIST-INFINITE_MACHINE_RESEARCH_POWER.smartDescription": "{OwnerName}'s cards no longer reduce Machine Durability.",
+  "MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER.smartDescription": "At the start of {OwnerName}'s turn, Repair {Amount}.",
+  "MADSCIENTIST-SPARE_SPIKES_POWER.smartDescription": "At the start of {OwnerName}'s next turn, deal {Amount} damage to ALL enemies.",
+  "MADSCIENTIST-SPARE_REAGENT_POWER.smartDescription": "At the start of {OwnerName}'s next turn, deal {Amount} damage to ALL enemies and apply Weak.",
+  "MADSCIENTIST-PLAN_POWER.smartDescription": "At the start of {OwnerName}'s next turn, Repair {Amount}.",
+  "MADSCIENTIST-MUTATION_POWER.smartDescription": "At the start of {OwnerName}'s next turn, lose {Amount} Dexterity.",
+  "MADSCIENTIST-SCORCHED_GROUND_POWER.smartDescription": "At the start of the next {Amount} turns, {OwnerName} deals 8 damage to a random enemy.",
+  "MADSCIENTIST-THINK_POWER.smartDescription": "At the start of {OwnerName}'s next turn, gain {Amount} Block and 2 Energy.",
+  "MADSCIENTIST-INVENTORY_POWER.smartDescription": "At the start of {OwnerName}'s turn, choose up to {Amount} cards from the discard pile and put them into the hand.",
+  "MADSCIENTIST-MAD_RESEARCH_POWER.smartDescription": "At the start of {OwnerName}'s turn, gain a random research Power card.",
+  "MADSCIENTIST-SOUL_RESEARCH_POWER.smartDescription": "Once per combat, the next time {OwnerName} would die, lose {Amount} Max HP and heal to half the remaining Max HP.",
+  "MADSCIENTIST-BLOCK_LOCK_POWER.smartDescription": "{OwnerName} cannot gain Block from cards. Remaining countdown: {Amount}; decreases at the start of each of their turns.",
+  "MADSCIENTIST-BLAST_FREE_POWER.smartDescription": "{OwnerName}'s Blast cards cost 0 this turn."
 }

@@ -134,5 +134,7 @@
   "MADSCIENTIST-FUSED_X_CARD.title": "Fusion",
   "MADSCIENTIST-FUSED_X_CARD.description": "{Effects}",
   "FUSED_CARD.title": "Fusion",
-  "FUSED_CARD.description": "[gold]Fusion effects[/gold] (in order):\n{Effects}"
+  "FUSED_CARD.description": "[gold]Fusion effects[/gold] (in order):\n{Effects}",
+  "FUSED_X_CARD.title": "Fusion",
+  "FUSED_X_CARD.description": "{Effects}"
 }

@@ -91,6 +91,8 @@ namespace MegaCrit.Sts2.Core.Models
         public abstract MegaCrit.Sts2.Core.Entities.Powers.PowerStackType StackType { get; }
         public virtual bool AllowNegative => true;
         public virtual MegaCrit.Sts2.Core.Localization.LocString Description => new("powers", GetType().Name);
+        protected virtual string SmartDescriptionLocKey => GetType().Name + ".smartDescription";
+        public MegaCrit.Sts2.Core.Localization.LocString SmartDescription => new("powers", SmartDescriptionLocKey);
         public void SetAmount(int amount) => Amount = amount;
         public virtual bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost) { modifiedCost = originalCost; return false; }
         public virtual decimal ModifyBlockAdditive(Creature target, decimal block, MegaCrit.Sts2.Core.ValueProps.ValueProp props, CardModel? cardSource, CardPlay? cardPlay) => 0;
@@ -185,7 +187,7 @@ namespace MegaCrit.Sts2.Core.GameActions.Multiplayer { public class PlayerChoice
 namespace MegaCrit.Sts2.Core.Entities.Potions { public enum Unused { } }
 namespace MegaCrit.Sts2.Core.Localization
 {
-    public class LocString(string table, string key) { public void Add(string name, object value) { } }
+    public class LocString(string table, string key) { public string Key => key; public void Add(string name, object value) { } }
 }
 namespace MegaCrit.Sts2.Core.CardSelection
 {

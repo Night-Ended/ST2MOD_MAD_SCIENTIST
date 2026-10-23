@@ -47,7 +47,25 @@ foreach ($lang in @('eng','zhs')) {
     foreach ($key in @('X_RAY','BLASTING_DEVICE')) { Check ($data["MADSCIENTIST-$key.description"] -notmatch 'X\(X\+1\)') "$lang $key does not show X(X+1)" }
     $ancients = ReadJson "MadScientist/localization/$lang/ancients.json"
     $names = @($ancients.Keys | ForEach-Object { ($_ -split '\.')[0] } | Sort-Object -Unique)
-    Check ($names.Count -eq 8) "$lang has eight ancient dialogue groups (static only)"
+    $expected = @('NEOW','DARV','OROBAS','PAEL','TEZCATARA','NONUPEIPE','VAKUU','TANX','THE_ARCHITECT')
+    Check (-not (Compare-Object ($expected | Sort-Object) $names)) "$lang has eight ancient groups plus the Architect"
+    foreach ($suffix in @('0-0r.char','0-0r.next','0-1r.ancient','0-attack')) {
+        $key = "THE_ARCHITECT.talk.MADSCIENTIST-MAD_SCIENTIST.$suffix"
+        Check (-not [string]::IsNullOrWhiteSpace($ancients[$key])) "$lang Architect key $suffix"
+    }
+    Check ($ancients['THE_ARCHITECT.talk.MADSCIENTIST-MAD_SCIENTIST.0-attack'] -eq 'Both') "$lang Architect attack is an enum value, not translated prose"
+    foreach ($id in @('FUSED_CARD','FUSED_X_CARD')) {
+        Check (-not [string]::IsNullOrWhiteSpace($data["$id.title"])) "$lang $id runtime title"
+        Check ($data["$id.description"].Contains('{Effects}')) "$lang $id runtime description includes material effects"
+    }
+    $powers = ReadJson "MadScientist/localization/$lang/powers.json"
+    foreach ($title in @($powers.Keys | Where-Object { $_.EndsWith('.title') })) {
+        $id = $title.Replace('.title','')
+        Check (-not [string]::IsNullOrWhiteSpace($powers["$id.smartDescription"])) "$lang $id has a smart description"
+        foreach ($var in [regex]::Matches($powers["$id.smartDescription"], '\{(\w+)')) {
+            Check ($var.Groups[1].Value -in @('OwnerName','Amount')) "$lang $id smart variable $($var.Groups[1].Value) is supplied by PowerModel"
+        }
+    }
 }
 foreach ($file in @('images/rooms/rest_site.png','images/ui/hands/multiplayer_hand_madscientist_point.png','images/ui/hands/multiplayer_hand_madscientist_rock.png','images/ui/hands/multiplayer_hand_madscientist_paper.png','images/ui/hands/multiplayer_hand_madscientist_scissors.png')) {
     $bytes = [IO.File]::ReadAllBytes((Join-Path $root "MadScientist/$file"))

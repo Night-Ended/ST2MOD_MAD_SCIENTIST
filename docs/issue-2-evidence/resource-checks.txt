@@ -47,6 +47,10 @@ PASS English text: ancients.json:TANX.talk.MADSCIENTIST-MAD_SCIENTIST.0-1.char
 PASS English text: ancients.json:TANX.talk.MADSCIENTIST-MAD_SCIENTIST.0-0.next
 PASS English text: ancients.json:TANX.talk.MADSCIENTIST-MAD_SCIENTIST.1-0r.ancient
 PASS English text: ancients.json:TANX.talk.MADSCIENTIST-MAD_SCIENTIST.2-0.ancient
+PASS English text: ancients.json:THE_ARCHITECT.talk.MADSCIENTIST-MAD_SCIENTIST.0-0r.char
+PASS English text: ancients.json:THE_ARCHITECT.talk.MADSCIENTIST-MAD_SCIENTIST.0-0r.next
+PASS English text: ancients.json:THE_ARCHITECT.talk.MADSCIENTIST-MAD_SCIENTIST.0-1r.ancient
+PASS English text: ancients.json:THE_ARCHITECT.talk.MADSCIENTIST-MAD_SCIENTIST.0-attack
 PASS card_keywords.json: matching language keys
 PASS card_selection.json: matching language keys
 PASS English text: card_selection.json:MADSCIENTIST-FUSE_PROMPT
@@ -192,6 +196,8 @@ PASS English text: cards.json:MADSCIENTIST-FUSED_X_CARD.title
 PASS English text: cards.json:MADSCIENTIST-FUSED_X_CARD.description
 PASS English text: cards.json:FUSED_CARD.title
 PASS English text: cards.json:FUSED_CARD.description
+PASS English text: cards.json:FUSED_X_CARD.title
+PASS English text: cards.json:FUSED_X_CARD.description
 PASS characters.json: matching language keys
 PASS English text: characters.json:MADSCIENTIST-MAD_SCIENTIST.title
 PASS English text: characters.json:MADSCIENTIST-MAD_SCIENTIST.titleObject
@@ -240,6 +246,21 @@ PASS English text: powers.json:MADSCIENTIST-BLOCK_LOCK_POWER.description
 PASS English text: powers.json:MADSCIENTIST-BLAST_FREE_POWER.title
 PASS English text: powers.json:MADSCIENTIST-BLAST_FREE_POWER.description
 PASS English text: powers.json:MADSCIENTIST-SOUL_RESEARCH_POWER.spent
+PASS English text: powers.json:MADSCIENTIST-MACHINE_DURABILITY_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-MACHINE_BROKEN_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-INFINITE_MACHINE_RESEARCH_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-SPARE_SPIKES_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-SPARE_REAGENT_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-PLAN_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-MUTATION_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-SCORCHED_GROUND_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-THINK_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-INVENTORY_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-MAD_RESEARCH_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-SOUL_RESEARCH_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-BLOCK_LOCK_POWER.smartDescription
+PASS English text: powers.json:MADSCIENTIST-BLAST_FREE_POWER.smartDescription
 PASS relics.json: matching language keys
 PASS English text: relics.json:MADSCIENTIST-TOME_OF_SCIENCE.title
 PASS English text: relics.json:MADSCIENTIST-TOME_OF_SCIENCE.description
@@ -519,10 +540,110 @@ PASS MADSCIENTIST-SELF_REPAIR_RESEARCH.description: dynamic variable Repair
 PASS MADSCIENTIST-FUSED_X_CARD.description: dynamic variable Effects
 PASS eng X_RAY does not show X(X+1)
 PASS eng BLASTING_DEVICE does not show X(X+1)
-PASS eng has eight ancient dialogue groups (static only)
+PASS eng has eight ancient groups plus the Architect
+PASS eng Architect key 0-0r.char
+PASS eng Architect key 0-0r.next
+PASS eng Architect key 0-1r.ancient
+PASS eng Architect key 0-attack
+PASS eng Architect attack is an enum value, not translated prose
+PASS eng FUSED_CARD runtime title
+PASS eng FUSED_CARD runtime description includes material effects
+PASS eng FUSED_X_CARD runtime title
+PASS eng FUSED_X_CARD runtime description includes material effects
+PASS eng MADSCIENTIST-MACHINE_DURABILITY_POWER has a smart description
+PASS eng MADSCIENTIST-MACHINE_DURABILITY_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-MACHINE_DURABILITY_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-MACHINE_BROKEN_POWER has a smart description
+PASS eng MADSCIENTIST-MACHINE_BROKEN_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-INFINITE_MACHINE_RESEARCH_POWER has a smart description
+PASS eng MADSCIENTIST-INFINITE_MACHINE_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER has a smart description
+PASS eng MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-SPARE_SPIKES_POWER has a smart description
+PASS eng MADSCIENTIST-SPARE_SPIKES_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-SPARE_SPIKES_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-SPARE_REAGENT_POWER has a smart description
+PASS eng MADSCIENTIST-SPARE_REAGENT_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-SPARE_REAGENT_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-PLAN_POWER has a smart description
+PASS eng MADSCIENTIST-PLAN_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-PLAN_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-MUTATION_POWER has a smart description
+PASS eng MADSCIENTIST-MUTATION_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-MUTATION_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-SCORCHED_GROUND_POWER has a smart description
+PASS eng MADSCIENTIST-SCORCHED_GROUND_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-SCORCHED_GROUND_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-THINK_POWER has a smart description
+PASS eng MADSCIENTIST-THINK_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-THINK_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-INVENTORY_POWER has a smart description
+PASS eng MADSCIENTIST-INVENTORY_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-INVENTORY_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-MAD_RESEARCH_POWER has a smart description
+PASS eng MADSCIENTIST-MAD_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-SOUL_RESEARCH_POWER has a smart description
+PASS eng MADSCIENTIST-SOUL_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-SOUL_RESEARCH_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-BLOCK_LOCK_POWER has a smart description
+PASS eng MADSCIENTIST-BLOCK_LOCK_POWER smart variable OwnerName is supplied by PowerModel
+PASS eng MADSCIENTIST-BLOCK_LOCK_POWER smart variable Amount is supplied by PowerModel
+PASS eng MADSCIENTIST-BLAST_FREE_POWER has a smart description
+PASS eng MADSCIENTIST-BLAST_FREE_POWER smart variable OwnerName is supplied by PowerModel
 PASS zhs X_RAY does not show X(X+1)
 PASS zhs BLASTING_DEVICE does not show X(X+1)
-PASS zhs has eight ancient dialogue groups (static only)
+PASS zhs has eight ancient groups plus the Architect
+PASS zhs Architect key 0-0r.char
+PASS zhs Architect key 0-0r.next
+PASS zhs Architect key 0-1r.ancient
+PASS zhs Architect key 0-attack
+PASS zhs Architect attack is an enum value, not translated prose
+PASS zhs FUSED_CARD runtime title
+PASS zhs FUSED_CARD runtime description includes material effects
+PASS zhs FUSED_X_CARD runtime title
+PASS zhs FUSED_X_CARD runtime description includes material effects
+PASS zhs MADSCIENTIST-MACHINE_DURABILITY_POWER has a smart description
+PASS zhs MADSCIENTIST-MACHINE_DURABILITY_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-MACHINE_DURABILITY_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-MACHINE_BROKEN_POWER has a smart description
+PASS zhs MADSCIENTIST-MACHINE_BROKEN_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-INFINITE_MACHINE_RESEARCH_POWER has a smart description
+PASS zhs MADSCIENTIST-INFINITE_MACHINE_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER has a smart description
+PASS zhs MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-SELF_REPAIR_RESEARCH_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-SPARE_SPIKES_POWER has a smart description
+PASS zhs MADSCIENTIST-SPARE_SPIKES_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-SPARE_SPIKES_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-SPARE_REAGENT_POWER has a smart description
+PASS zhs MADSCIENTIST-SPARE_REAGENT_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-SPARE_REAGENT_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-PLAN_POWER has a smart description
+PASS zhs MADSCIENTIST-PLAN_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-PLAN_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-MUTATION_POWER has a smart description
+PASS zhs MADSCIENTIST-MUTATION_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-MUTATION_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-SCORCHED_GROUND_POWER has a smart description
+PASS zhs MADSCIENTIST-SCORCHED_GROUND_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-SCORCHED_GROUND_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-THINK_POWER has a smart description
+PASS zhs MADSCIENTIST-THINK_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-THINK_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-INVENTORY_POWER has a smart description
+PASS zhs MADSCIENTIST-INVENTORY_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-INVENTORY_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-MAD_RESEARCH_POWER has a smart description
+PASS zhs MADSCIENTIST-MAD_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-SOUL_RESEARCH_POWER has a smart description
+PASS zhs MADSCIENTIST-SOUL_RESEARCH_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-SOUL_RESEARCH_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-BLOCK_LOCK_POWER has a smart description
+PASS zhs MADSCIENTIST-BLOCK_LOCK_POWER smart variable OwnerName is supplied by PowerModel
+PASS zhs MADSCIENTIST-BLOCK_LOCK_POWER smart variable Amount is supplied by PowerModel
+PASS zhs MADSCIENTIST-BLAST_FREE_POWER has a smart description
+PASS zhs MADSCIENTIST-BLAST_FREE_POWER smart variable OwnerName is supplied by PowerModel
 PASS images/rooms/rest_site.png is a PNG (layout not tested)
 PASS images/ui/hands/multiplayer_hand_madscientist_point.png is a PNG (layout not tested)
 PASS images/ui/hands/multiplayer_hand_madscientist_rock.png is a PNG (layout not tested)
@@ -532,4 +653,4 @@ PASS build output uses isolated-overridable ModOutputDir
 PASS build output uses isolated-overridable ModOutputDir
 PASS build output uses isolated-overridable ModOutputDir
 PASS build output uses isolated-overridable ModOutputDir
-534 static resource assertions passed; no rendering/gameplay/multiplayer claim.
+655 static resource assertions passed; no rendering/gameplay/multiplayer claim.

@@ -1,13 +1,12 @@
 <repo>\tests\CombatRegression\GameDoubles.cs(29,27): warning CS9124: Parameter 'int cost' is captured into the state of the enclosing type and its value is also used to initialize a field, property, or event. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(106,64): warning CS9113: Parameter 'rarity' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(190,35): warning CS9113: Parameter 'table' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(194,78): warning CS9113: Parameter 'loc' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(194,87): warning CS9113: Parameter 'min' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(194,96): warning CS9113: Parameter 'max' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
 <repo>\tests\CombatRegression\GameDoubles.cs(27,43): warning CS9113: Parameter 'card' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(104,64): warning CS9113: Parameter 'rarity' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(192,78): warning CS9113: Parameter 'loc' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(192,87): warning CS9113: Parameter 'min' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(192,96): warning CS9113: Parameter 'max' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(188,35): warning CS9113: Parameter 'table' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(188,49): warning CS9113: Parameter 'key' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(197,83): warning CS9113: Parameter 'prop' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
-<repo>\tests\CombatRegression\GameDoubles.cs(198,82): warning CS9113: Parameter 'prop' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(199,83): warning CS9113: Parameter 'prop' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
+<repo>\tests\CombatRegression\GameDoubles.cs(200,82): warning CS9113: Parameter 'prop' is unread. [<repo>\tests\CombatRegression\CombatRegression.csproj]
 PASS fusion registers with combat
 PASS upgraded cost plus unplayable material cannot discount the result
 PASS dynamic type and target
@@ -51,12 +50,16 @@ PASS block lock does not tick on enemy turn
 PASS block lock decrements once at owner turn start
 PASS block lock expires at the following owner turn start
 PASS Soul Research prevents first death (loss 5)
+PASS unused Soul Research selects its active smart description
 PASS Soul Research reduces max HP and heals to half (loss 5)
 PASS Soul Research cannot revive again after reapplication (loss 5)
+PASS spent Soul Research keeps both tooltip paths spent after reapplication
 PASS Soul Research does not prevent teammate death
 PASS Soul Research prevents first death (loss 3)
+PASS unused Soul Research selects its active smart description
 PASS Soul Research reduces max HP and heals to half (loss 3)
 PASS Soul Research cannot revive again after reapplication (loss 3)
+PASS spent Soul Research keeps both tooltip paths spent after reapplication
 PASS Soul Research does not prevent teammate death
 PASS Scientific Research copies on turn-start hand draw
 PASS Scientific Research copies on effect draw
@@ -88,4 +91,4 @@ PASS X-Ray X=3, upgrade=True: hit count
 PASS X-Ray X=3, upgrade=True: block-lock duration
 PASS Blasting Device X=3, upgrade=True: generated cards
 PASS Blasting Device X=3, upgrade=True: discount also applies to existing Blasts
-80 passed, 0 failed (contract doubles; game integration still required).
+84 passed, 0 failed (contract doubles; game integration still required).
